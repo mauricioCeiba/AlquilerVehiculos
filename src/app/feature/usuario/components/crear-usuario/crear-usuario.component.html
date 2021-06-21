@@ -1,0 +1,27 @@
+<br>
+<h1 style="margin-left: 5%;">Registrar Usuario</h1>
+
+<form [formGroup]="usuarioForm" (ngSubmit)="cerar()">
+
+  <div class="row mx-auto" style="padding-bottom: 10px;">
+
+    <div class="col-sm-4">
+      <label for="nombre">Nombre(s)</label>
+      <input validar type="text" id="nombreUsuario" name="nombreUsuario" placeholder="Nombre Usuario"
+        class="form-control" formControlName="nombre">
+    </div>
+  </div>
+
+    <div class="row mx-auto">
+
+    <div class="col-sm-4">
+      <label for="nombre">Cedula</label>
+      <input validar type="text" id="cedulaUsuario" name="cedula" placeholder="cedula Usuario"
+        class="form-control" formControlName="cedula">
+    </div>
+  </div>
+  <div style="margin-left: 15%;" class="col-sm-4">
+    <button type="submit" class="btn btn-success btn-lg"  >Crear</button>
+  </div>
+
+</form>

@@ -1,0 +1,71 @@
+<h1>Registrar Devolucion</h1>
+
+
+<div class="form-group row">
+  <label for="vehiculosId" class="col-sm-2 col-form-label">Id vehiculo</label>
+  <div class="col-sm-2">
+    <input type="text" readonly class="form-control-plaintext" id="vehiculosId" [value]="vehiculosId">
+  </div>
+</div>
+<div class="form-group row">
+  <label for="usuariosId" class="col-sm-2 col-form-label">Id Usuario</label>
+  <div class="col-sm-2">
+    <input type="text" readonly class="form-control-plaintext" id="usuariosId"  [value]="usuariosId">
+  </div>
+</div>
+<div class="form-group row">
+  <label for="cantidadDiasAlquiler" class="col-sm-2 col-form-label">Cantidad Dias Alquiler</label>
+  <div class="col-sm-2">
+    <input type="text" readonly class="form-control-plaintext" id="cantidadDiasAlquiler" [value]="cantidadDiasAlquiler">
+  </div>
+</div>
+<div class="form-group row">
+  <label for="valorTotalParcial" class="col-sm-2 col-form-label">Valor Total Parcial</label>
+  <div class="col-sm-2">
+    <input type="text" readonly class="form-control-plaintext" id="valorTotalParcial"  [value]="valorTotalParcial">
+  </div>
+</div>
+<div class="form-group row">
+  <label for="staticEmail" class="col-sm-2 col-form-label">Fecha del Alquiler</label>
+  <div class="col-sm-2">
+    <input type="text" readonly class="form-control-plaintext" id="staticEmail" [value]="fechaAlquiler" >
+  </div>
+</div>
+
+<div class="form-group row">
+  <label for="idAlquilerVehiculosM" class="col-sm-2 col-form-label">id Alquiler</label>
+  <div class="col-sm-10">
+    <input validar type="text" id="idAlquilerVehiculosM" name="idAlquilerVehiculosM" disabled
+    class="form-control" [value]="idAlquilerVehiculos">
+  </div>
+</div>
+
+
+
+<form [formGroup]="devolucionForm" (ngSubmit)="cerar()">
+
+
+
+    <div class="form-group row">
+      <label for="fechaEntrega" class="col-sm-2 col-form-label">Fecha Entrega</label>
+      <div class="col-sm-10">
+        <input validar type="Date" id="fechaEntrega" name="fechaEntrega" placeholder="fechaEntrega "
+        class="form-control" formControlName="fechaEntrega">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="inputPassword" class="col-sm-2 col-form-label">Porcentaje de Daño</label>
+      <div class="col-sm-10">
+        <input validar type="number" min="0" max="100" id="porcentajeDeDano" placeholder="porcentajeDeDano"
+        class="form-control" formControlName="porcentajeDeDano">
+      </div>
+    </div>
+
+
+
+    <div style="margin-left: 15%;" class="col-sm-4">
+      <button type="submit" class="btn btn-success btn-lg"  >Crear</button>
+    </div>
+
+</form>

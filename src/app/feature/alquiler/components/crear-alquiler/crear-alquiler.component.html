@@ -1,0 +1,53 @@
+<br>
+<h1 style="margin-left: 12%;">Crear Alquiler</h1>
+
+
+<form [formGroup]="alquilerForm" (ngSubmit)="cerar()">
+
+  <div class="row">
+    <div class="col-sm-1">
+      <label>Vehiculos:</label>
+    </div>
+    <div class="col-sm-4">
+    <select class="form-select" aria-label="Default select example" validar id="vehiculosId" name="vehiculosId"  class="form-control" formControlName="vehiculosId">
+      <option selected>Seleccione el Vehiculo</option>
+      <option *ngFor="let item of vehiculos | async" [value]="item.id">{{item.placa}}{{item.tipoVehiculo}}</option>
+    </select>
+    </div>
+    </div>
+
+  <div class="row">
+    <div class="col-sm-1">
+      <label>Usuarios:</label>
+    </div>
+    <div class="col-sm-4">
+    <select class="form-select" aria-label="Default select example" validar id="usuariosId" name="usuariosId"  class="form-control" formControlName="usuariosId">
+      <option selected>Seleccione el Usuario</option>
+      <option *ngFor="let item of usuarios | async" [value]="item.id">{{item.nombre}}</option>
+    </select>
+    </div>
+</div>
+
+
+  <div class="row">
+    <div class="col-sm-1">
+      <label>Cantidad de Dias:</label>
+    </div>
+    <div class="col-sm-4">
+      <input validar type="text" id="cantidadDiasAlquiler" name="cantidadDiasAlquiler" placeholder="cantidadDiasAlquiler" class="form-control"
+        formControlName="cantidadDiasAlquiler">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-1">
+      <label>Fecha Alquiler:</label>
+    </div>
+    <div class="col-sm-4">
+      <input validar type="date" id="fechaAlquiler" name="fechaAlquiler" placeholder="fechaAlquiler"
+        class="form-control" formControlName="fechaAlquiler" min="2021-01-01" max="2022-12-31">
+    </div>
+  </div>
+  <div style="margin-left: 15%;" class="col-sm-4">
+    <button type="submit" class="btn btn-success btn-lg"  >Crear</button>
+  </div>
+</form>

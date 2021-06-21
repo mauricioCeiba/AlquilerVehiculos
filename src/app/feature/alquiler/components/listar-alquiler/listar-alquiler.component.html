@@ -1,0 +1,34 @@
+<br>
+<h1 style="margin-left: 15%;">Lista de Alquileres</h1>
+<div id="alquiler">
+
+  <table class="table  table-hover table-striped table-bordered border-primary " style="width:50% ;">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">id vehiculo</th>
+        <th scope="col">id usuario</th>
+        <th scope="col">Cantidad de dias</th>
+        <th scope="col">Valor Parcial</th>
+        <th scope="col">Fecha alquiler</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let alquiler of listaAlquileres | async">
+        <th>{{alquiler.id}}</th>
+        <td>{{alquiler.vehiculosId}}</td>
+        <td>{{alquiler.usuariosId}}</td>
+        <td>{{alquiler.cantidadDiasAlquiler}}</td>
+        <td>{{alquiler.valorTotalParcial}}</td>
+        <td>{{alquiler.fechaAlquiler}}</td>
+        <td> <a (click)="eliminar(alquiler.id)" class="btn btn-danger btn-xs">Eliminar</a>
+
+          <a (click)="irACrearDevolucion(alquiler)" class="btn btn-info">Crear Devolucion</a>
+        </td>
+      </tr>
+    </tbody>
+
+  </table>
+</div>
