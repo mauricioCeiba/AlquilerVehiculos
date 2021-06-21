@@ -1,4 +1,0 @@
-ng g m feature/bank --routing=true --module app.module.ts -- Para crear un modulo de forma lazy con routing, pero sin crear un componente
-ng new your-project-name --style=scss ---> Crear un proyecto con scss como base de estilos
-ng config schematics.@schematics/angular:component.styleext scss ---> Cambiar a scss
-
