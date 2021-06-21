@@ -1,0 +1,25 @@
+<br>
+<h1 style="margin-left: 15%;">Lista de Vehiculos</h1>
+<div id="vehiculos" style="margin-left: 2%;">
+
+  <table class="table  table-hover table-striped table-bordered border-primary " style="width:50% ;">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Placa</th>
+        <th scope="col">Precio Alquiler Dia</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of listaVehiculos| async">
+        <th>{{item.id}}</th>
+        <td>{{item.placa}}</td>
+        <td>{{item.precioAlquilerPorDia}}</td>
+        <td>{{item.tipoVehiculo}}</td>
+        <td> <a (click)="eliminar(item.id)" class="btn btn-danger btn-sm">Eliminar</a></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

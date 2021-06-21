@@ -1,0 +1,38 @@
+<br> <h1 style="margin-left: 5%;">Registrar Vehiculo</h1>
+
+<form [formGroup]="vehiculoForm" (ngSubmit)="cerar()">
+  <div class="row mx-auto">
+
+    <div class="col-sm-4">
+      <label>Placa:</label>
+      <input validar type="text" id="placa" name="placa" placeholder="placa" class="form-control"
+        formControlName="placa">
+    </div>
+  </div>
+  <div class="row mx-auto">
+
+    <div class="col-sm-4">
+      <label>Precio alquiler por dia:</label>
+      <input validar type="text" id="precioAlquilerPorDia" name="precioAlquilerPorDia" placeholder="Precio alquiler por dia"
+        class="form-control" formControlName="precioAlquilerPorDia">
+    </div>
+  </div>
+  <div class="row mx-auto">
+
+    <div class="col-sm-4">
+      <label>Tipo vehiculo:</label>
+
+
+        <select class="form-select" aria-label="Default select example" validar id="tipoVehiculo" name="tipoVehiculo"  class="form-control" formControlName="tipoVehiculo">
+          <option selected>Seleccione el Tipo</option>
+          <option value="CARRO">CARRO</option>
+          <option value="MOTO">MOTO</option>
+
+        </select>
+    </div>
+  </div>
+
+  <div style="margin-left: 15%;" class="col-sm-4">
+    <button type="submit" class="btn btn-success btn-lg"  >Crear</button>
+  </div>
+</form>
