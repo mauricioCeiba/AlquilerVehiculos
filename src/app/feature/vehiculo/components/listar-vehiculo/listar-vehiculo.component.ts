@@ -11,18 +11,18 @@ import { Vehiculo } from '@vehiculo/shared/model/vehiculo';
 })
 export class ListarVehiculoComponent implements OnInit {
   public listaVehiculos: Observable<Vehiculo[]>;
-
+  errorMessage = "";
   constructor(protected vehiculoService: VehiculoService) { }
 
   ngOnInit() {
     this.listaVehiculos = this.vehiculoService.consultar();
   }
 
-  public eliminar(id:number){
+  public eliminar(id: number){
 
     this.vehiculoService.eliminar(id).subscribe(
-      () =>    this.listaVehiculos = this.vehiculoService.consultar()
-    )
+      () =>    this.listaVehiculos = this.vehiculoService.consultar(), error => this.errorMessage = error
+    );
   }
 
 }

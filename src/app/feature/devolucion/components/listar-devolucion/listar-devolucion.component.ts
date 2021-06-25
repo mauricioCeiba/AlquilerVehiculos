@@ -18,11 +18,11 @@ export class ListarDevolucionComponent implements OnInit {
     this.listaDevoluciones = this.devolucionService.consultar();
   }
 
-  public eliminar(id:number){
+  public eliminar(id: number){
 
     this.devolucionService.eliminar(id).subscribe(
       () =>    this.listaDevoluciones = this.devolucionService.consultar()
-    )
+    );
   }
 
 }

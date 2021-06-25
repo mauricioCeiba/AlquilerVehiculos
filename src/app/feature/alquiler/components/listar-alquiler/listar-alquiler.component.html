@@ -16,8 +16,8 @@
     </thead>
 
     <tbody>
-      <tr *ngFor="let alquiler of listaAlquileres | async">
-        <th>{{alquiler.id}}</th>
+      <tr *ngFor="let alquiler of listaAlquileres | async" class="alquiler">
+        <td>{{alquiler.id}}</td>
         <td>{{alquiler.vehiculosId}}</td>
         <td>{{alquiler.usuariosId}}</td>
         <td>{{alquiler.cantidadDiasAlquiler}}</td>

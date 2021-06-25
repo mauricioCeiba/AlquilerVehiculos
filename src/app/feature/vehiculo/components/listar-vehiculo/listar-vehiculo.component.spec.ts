@@ -1,46 +1,49 @@
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 
-import { ListarProductoComponent } from './listar-producto.component';
+import { ListarVehiculoComponent } from './listar-vehiculo.component';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
-import { ProductoService } from '../../shared/service/producto.service';
-import { Producto } from '../../shared/model/producto';
+import { VehiculoService } from '../../shared/service/vehiculo.service';
+import { Vehiculo } from '../../shared/model/vehiculo';
 import { HttpService } from 'src/app/core/services/http.service';
 
-describe('ListarProductoComponent', () => {
-  let component: ListarProductoComponent;
-  let fixture: ComponentFixture<ListarProductoComponent>;
-  let productoService: ProductoService;
-  const listaProductos: Producto[] = [new Producto('1', 'Producto 1'), new Producto('2', 'Producto 2')];
+fdescribe('ListarVehiculoComponent', () => {
+  let component: ListarVehiculoComponent;
+  let fixture: ComponentFixture<ListarVehiculoComponent>;
+  let vehiculoService: VehiculoService;
+  const listaVehiculos: Vehiculo[] = [
+    new Vehiculo(1, "ICX111", 100000, "CARRO"),
+    new Vehiculo(2, "ICX222", 200000, "CARRO"),
+  ];
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ListarProductoComponent],
+      declarations: [ListarVehiculoComponent],
       imports: [
         CommonModule,
         HttpClientModule,
         RouterTestingModule
       ],
-      providers: [ProductoService, HttpService]
+      providers: [VehiculoService, HttpService]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ListarProductoComponent);
+    fixture = TestBed.createComponent(ListarVehiculoComponent);
     component = fixture.componentInstance;
-    productoService = TestBed.inject(ProductoService);
-    spyOn(productoService, 'consultar').and.returnValue(
-      of(listaProductos)
+    vehiculoService = TestBed.inject(VehiculoService);
+    spyOn(vehiculoService, 'consultar').and.returnValue(
+      of(listaVehiculos)
     );
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
-    component.listaProductos.subscribe(resultado => {
+    component.listaVehiculos.subscribe(resultado => {
       expect(2).toBe(resultado.length);
   });
 });

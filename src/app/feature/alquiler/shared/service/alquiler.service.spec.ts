@@ -1,61 +1,61 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
-import { ProductoService } from './producto.service';
+import { AlquilerService } from './alquiler.service';
 import { environment } from 'src/environments/environment';
 import { HttpService } from 'src/app/core/services/http.service';
-import { Producto } from '../model/producto';
+import { Alquiler } from '../model/alquiler';
 import { HttpResponse } from '@angular/common/http';
 
-describe('ProductoService', () => {
+fdescribe('AlquilerService', () => {
   let httpMock: HttpTestingController;
-  let service: ProductoService;
-  const apiEndpointProductoConsulta = `${environment.endpoint}/tiposFamilia`;
-  const apiEndpointProductos = `${environment.endpoint}/productos`;
+  let service: AlquilerService;
+  const apiEndpointAlquilerConsulta = `${environment.baseUrl}/alquiler`;
+  const apiEndpointAlquilers = `${environment.baseUrl}/alquiler`;
 
   beforeEach(() => {
     const injector = TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [ProductoService, HttpService]
+      providers: [AlquilerService, HttpService]
     });
     httpMock = injector.inject(HttpTestingController);
-    service = TestBed.inject(ProductoService);
+    service = TestBed.inject(AlquilerService);
   });
 
-  it('should be created', () => {
-    const productService: ProductoService = TestBed.inject(ProductoService);
+  it('deberia crear', () => {
+    const productService: AlquilerService = TestBed.inject(AlquilerService);
     expect(productService).toBeTruthy();
   });
 
-  it('deberia listar productos', () => {
-    const dummyProductos = [
-      new Producto('1', 'Producto 1'), new Producto('2', 'Producto 2')
+  it('deberia listar alquilers', () => {
+    const dummyAlquilers = [
+      new Alquiler('1', '1', '1', 2, 200000, new Date("2021-06-20")), new Alquiler('2', '2', '2', 2, 400000, new Date("2021-06-20"))
     ];
-    service.consultar().subscribe(productos => {
-      expect(productos.length).toBe(2);
-      expect(productos).toEqual(dummyProductos);
+    service.consultar().subscribe(alquilers => {
+      expect(alquilers.length).toBe(2);
+      expect(alquilers).toEqual(dummyAlquilers);
     });
-    const req = httpMock.expectOne(apiEndpointProductoConsulta);
+    const req = httpMock.expectOne(apiEndpointAlquilerConsulta);
     expect(req.request.method).toBe('GET');
-    req.flush(dummyProductos);
+    req.flush(dummyAlquilers);
   });
 
-  it('deberia crear un producto', () => {
-    const dummyProducto = new Producto('1', 'Producto 1');
-    service.guardar(dummyProducto).subscribe((respuesta) => {
+  it('deberia crear un alquiler', () => {
+    const dummyAlquiler = new Alquiler('1', '1', '1', 2, 200000, new Date("2021-06-20"));
+    service.guardar(dummyAlquiler).subscribe((respuesta) => {
       expect(respuesta).toEqual(true);
     });
-    const req = httpMock.expectOne(apiEndpointProductos);
+    const req = httpMock.expectOne(apiEndpointAlquilers);
     expect(req.request.method).toBe('POST');
     req.event(new HttpResponse<boolean>({body: true}));
   });
 
-  it('deberia eliminar un producto', () => {
-    const dummyProducto = new Producto('1', 'Producto 1');
-    service.eliminar(dummyProducto).subscribe((respuesta) => {
+  it('deberia eliminar un alquiler', () => {
+    // const dummyAlquiler = new Alquiler('1', 'Alquiler 1');
+    service.eliminar(1).subscribe((respuesta) => {
       expect(respuesta).toEqual(true);
     });
-    const req = httpMock.expectOne(`${apiEndpointProductos}/1`);
+    const req = httpMock.expectOne(`${apiEndpointAlquilers}/1`);
     expect(req.request.method).toBe('DELETE');
     req.event(new HttpResponse<boolean>({body: true}));
   });

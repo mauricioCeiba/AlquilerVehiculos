@@ -7,6 +7,7 @@ import { CrearVehiculoComponent } from './components/crear-vehiculo/crear-vehicu
 import { VehiculoComponent } from './components/vehiculo/vehiculo.component';
 import { SharedModule } from '@shared/shared.module';
 import { VehiculoService } from './shared/service/vehiculo.service';
+import { CoreModule } from '@core/core.module';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { VehiculoService } from './shared/service/vehiculo.service';
   ],
   imports: [
     VehiculoRoutingModule,
-    SharedModule
+    SharedModule,
+    CoreModule
   ],
   providers: [VehiculoService]
 })

@@ -7,6 +7,8 @@ import { CrearDevolucionComponent } from './components/crear-devolucion/crear-de
 import { DevolucionComponent } from './components/devolucion/devolucion.component';
 import { SharedModule } from '@shared/shared.module';
 import { DevolucionService } from './shared/service/devolucion.service';
+import { CoreModule } from '@core/core.module';
+import { AlquilerService } from '@alquiler/shared/service/alquiler.service';
 
 
 @NgModule({
@@ -18,8 +20,9 @@ import { DevolucionService } from './shared/service/devolucion.service';
   ],
   imports: [
     DevolucionRoutingModule,
-    SharedModule
+    SharedModule,
+    CoreModule
   ],
-  providers: [DevolucionService]
+  providers: [DevolucionService, AlquilerService]
 })
 export class DevolucionModule { }

@@ -3,11 +3,11 @@ import { of } from 'rxjs';
 
 import { CrearAlquilerComponent } from './crear-alquiler.component';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AlquilerService } from '../../shared/service/alquiler.service';
 import { HttpService } from 'src/app/core/services/http.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('CrearAlquilerComponent', () => {
   let component: CrearAlquilerComponent;
@@ -19,7 +19,7 @@ describe('CrearAlquilerComponent', () => {
       declarations: [ CrearAlquilerComponent ],
       imports: [
         CommonModule,
-        HttpClientModule,
+        HttpClientTestingModule,
         RouterTestingModule,
         ReactiveFormsModule,
         FormsModule
@@ -47,13 +47,14 @@ describe('CrearAlquilerComponent', () => {
     expect(component.alquilerForm.valid).toBeFalsy();
   });
 
-  it('Registrando alquiler', () => {
-    expect(component.alquilerForm.valid).toBeFalsy();
+  it('#crear registrando alquiler', () => {
+
     component.alquilerForm.controls.id.setValue('001');
     component.alquilerForm.controls.descripcion.setValue('Alquiler test');
-    expect(component.alquilerForm.valid).toBeTruthy();
 
     component.cerar();
+
+    expect(component.alquilerForm.valid).toBeTruthy();
 
     // Aca validamos el resultado esperado al enviar la petición
     // TODO adicionar expect

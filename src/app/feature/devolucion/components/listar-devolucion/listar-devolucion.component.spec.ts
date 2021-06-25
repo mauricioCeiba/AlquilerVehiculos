@@ -1,48 +1,49 @@
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 
-import { ListarProductoComponent } from './listar-producto.component';
+import { ListarDevolucionComponent } from './listar-devolucion.component';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
-import { ProductoService } from '../../shared/service/producto.service';
-import { Producto } from '../../shared/model/producto';
+import { DevolucionService } from '../../shared/service/devolucion.service';
+import { Devolucion } from '../../shared/model/devolucion';
 import { HttpService } from 'src/app/core/services/http.service';
 
-describe('ListarProductoComponent', () => {
-  let component: ListarProductoComponent;
-  let fixture: ComponentFixture<ListarProductoComponent>;
-  let productoService: ProductoService;
-  const listaProductos: Producto[] = [new Producto('1', 'Producto 1'), new Producto('2', 'Producto 2')];
+describe('ListarDevolucionComponent', () => {
+  let component: ListarDevolucionComponent;
+  let fixture: ComponentFixture<ListarDevolucionComponent>;
+  let devolucionService: DevolucionService;
+  const listaDevolucions: Devolucion[] = [
+    new Devolucion(1, 1, new Date("2021-06-22"), 0, 0, 0, 200000),
+    new Devolucion(2, 2, new Date("2021-06-22"), 0, 0, 0, 800000),
+  ];
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ListarProductoComponent],
+      declarations: [ListarDevolucionComponent],
       imports: [
         CommonModule,
         HttpClientModule,
         RouterTestingModule
       ],
-      providers: [ProductoService, HttpService]
+      providers: [DevolucionService, HttpService]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ListarProductoComponent);
+    fixture = TestBed.createComponent(ListarDevolucionComponent);
     component = fixture.componentInstance;
-    productoService = TestBed.inject(ProductoService);
-    spyOn(productoService, 'consultar').and.returnValue(
-      of(listaProductos)
-    );
+    devolucionService = TestBed.inject(DevolucionService);
+    spyOn(devolucionService, "consultar").and.returnValue(of(listaDevolucions));
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
-    component.listaProductos.subscribe(resultado => {
+    component.listaDevoluciones.subscribe((resultado) => {
       expect(2).toBe(resultado.length);
+    });
   });
-});
 
 });

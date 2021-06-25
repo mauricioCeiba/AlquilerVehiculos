@@ -8,7 +8,7 @@ export class Devolucion {
     valorTotalAPagar: number;
 
     constructor(id: number,  idAlquilerVehiculos: number, fechaEntrega: Date,
-      porcentajeDeDano: number, valorPorMora: number,  valorPorDanos: number,valorTotalAPagar: number) {
+                porcentajeDeDano: number, valorPorMora: number,  valorPorDanos: number, valorTotalAPagar: number) {
         this.id = id;
         this.idAlquilerVehiculos = idAlquilerVehiculos;
         this.fechaEntrega = fechaEntrega;

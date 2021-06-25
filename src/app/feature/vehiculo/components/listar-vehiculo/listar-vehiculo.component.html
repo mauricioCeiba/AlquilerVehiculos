@@ -13,8 +13,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of listaVehiculos| async">
-        <th>{{item.id}}</th>
+      <tr *ngFor="let item of listaVehiculos| async" class="vehiculo">
+        <td>{{item.id}}</td>
         <td>{{item.placa}}</td>
         <td>{{item.precioAlquilerPorDia}}</td>
         <td>{{item.tipoVehiculo}}</td>
@@ -22,4 +22,6 @@
       </tr>
     </tbody>
   </table>
+
+  <p>{{errorMessage}}</p>
 </div>

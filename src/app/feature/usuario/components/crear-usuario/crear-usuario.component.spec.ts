@@ -1,39 +1,39 @@
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 
-import { CrearProductoComponent } from './crear-producto.component';
+import { CrearUsuarioComponent } from './crear-usuario.component';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
-import { ProductoService } from '../../shared/service/producto.service';
+import { UsuarioService } from '../../shared/service/usuario.service';
 import { HttpService } from 'src/app/core/services/http.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
-describe('CrearProductoComponent', () => {
-  let component: CrearProductoComponent;
-  let fixture: ComponentFixture<CrearProductoComponent>;
-  let productoService: ProductoService;
+describe('CrearUsuarioComponent', () => {
+  let component: CrearUsuarioComponent;
+  let fixture: ComponentFixture<CrearUsuarioComponent>;
+  let usuarioService: UsuarioService;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ CrearProductoComponent ],
+      declarations: [ CrearUsuarioComponent],
       imports: [
         CommonModule,
-        HttpClientModule,
+        HttpClientTestingModule,
         RouterTestingModule,
         ReactiveFormsModule,
         FormsModule
       ],
-      providers: [ProductoService, HttpService],
+      providers: [UsuarioService, HttpService],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CrearProductoComponent);
+    fixture = TestBed.createComponent(CrearUsuarioComponent);
     component = fixture.componentInstance;
-    productoService = TestBed.inject(ProductoService);
-    spyOn(productoService, 'guardar').and.returnValue(
+    usuarioService = TestBed.inject(UsuarioService);
+    spyOn(usuarioService, 'guardar').and.returnValue(
       of(true)
     );
     fixture.detectChanges();
@@ -44,14 +44,15 @@ describe('CrearProductoComponent', () => {
   });
 
   it('formulario es invalido cuando esta vacio', () => {
-    expect(component.productoForm.valid).toBeFalsy();
+    expect(component.usuarioForm.valid).toBeFalsy();
   });
 
-  it('Registrando producto', () => {
-    expect(component.productoForm.valid).toBeFalsy();
-    component.productoForm.controls.id.setValue('001');
-    component.productoForm.controls.descripcion.setValue('Producto test');
-    expect(component.productoForm.valid).toBeTruthy();
+  it('Registrando usuario', () => {
+    expect(component.usuarioForm.valid).toBeFalsy();
+
+    component.usuarioForm.controls.nombre.setValue('Usuario test');
+    component.usuarioForm.controls.cedula.setValue('123456');
+    expect(component.usuarioForm.valid).toBeTruthy();
 
     component.cerar();
 

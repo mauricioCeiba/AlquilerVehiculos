@@ -18,11 +18,11 @@ export class ListarUsuarioComponent implements OnInit {
     this.listaUsuarios = this.usuarioService.consultar();
   }
 
-  public eliminar(id:number){
+  public eliminar(id: number){
 
     this.usuarioService.eliminar(id).subscribe(
       () =>    this.listaUsuarios = this.usuarioService.consultar()
-    )
+    );
   }
 
 }

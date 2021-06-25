@@ -12,30 +12,30 @@ import { AlquilerService } from '@alquiler/shared/service/alquiler.service';
 })
 export class CrearDevolucionComponent implements OnInit {
   devolucionForm: FormGroup;
-  constructor(protected devolucionServices: DevolucionService,protected alquilerService: AlquilerService,
-     protected route:ActivatedRoute, protected router:Router) { }
+  constructor(protected devolucionServices: DevolucionService, protected alquilerService: AlquilerService,
+              protected route: ActivatedRoute, protected router: Router) { }
 
 
-  //datos del alquiler
-  idAlquilerVehiculos:number;
+  // datos del alquiler
+  idAlquilerVehiculos: number;
   vehiculosId: number;
   usuariosId: number;
   cantidadDiasAlquiler: number;
   valorTotalParcial: number;
   fechaAlquiler: Date;
- //datos del alquiler
+ // datos del alquiler
 
   ngOnInit() {
     this.construirFormularioDevolucion();
     this.route.queryParams
     .subscribe(params => {
       console.log(params);
-      this.idAlquilerVehiculos=params.id;
-      this.vehiculosId=params.vehiculosId;
-      this.usuariosId=params.usuariosId;
-      this.cantidadDiasAlquiler=params.cantidadDiasAlquiler;
-      this.valorTotalParcial=params.valorTotalParcial;
-      this.fechaAlquiler=params.fechaAlquiler;
+      this.idAlquilerVehiculos = params.id;
+      this.vehiculosId = params.vehiculosId;
+      this.usuariosId = params.usuariosId;
+      this.cantidadDiasAlquiler = params.cantidadDiasAlquiler;
+      this.valorTotalParcial = params.valorTotalParcial;
+      this.fechaAlquiler = params.fechaAlquiler;
 
 
     }
@@ -44,18 +44,18 @@ export class CrearDevolucionComponent implements OnInit {
   }
 
   cerar() {
-    let devolucion=this.devolucionForm.value;
-    devolucion.idAlquilerVehiculos= this.idAlquilerVehiculos;
+    const devolucion = this.devolucionForm.value;
+    devolucion.idAlquilerVehiculos = this.idAlquilerVehiculos;
     this.devolucionServices.guardar(devolucion).subscribe(
       () => this.router.navigateByUrl('/devolucion/listar')
-    );;
+    );
   }
 
   private construirFormularioDevolucion() {
     this.devolucionForm = new FormGroup({
 
       fechaEntrega: new FormControl('', [Validators.required]),
-      porcentajeDeDano:new FormControl('', [Validators.required])
+      porcentajeDeDano: new FormControl('', [Validators.required])
     });
   }
 

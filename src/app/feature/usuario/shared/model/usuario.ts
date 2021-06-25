@@ -1,10 +1,10 @@
 export class Usuario {
-    id:number;
+    id: number;
     nombre: string;
     cedula: string;
 
-    constructor(id:number, nombre: string, cedula: string) {
-        this.id=id;
+    constructor(id: number, nombre: string, cedula: string) {
+        this.id = id;
         this.nombre = nombre;
         this.cedula = cedula;
     }

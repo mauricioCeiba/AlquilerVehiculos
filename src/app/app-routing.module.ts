@@ -4,8 +4,7 @@ import { SecurityGuard } from "@core/guard/security.guard";
 import { HomeComponent } from "@home/home.component";
 
 const routes: Routes = [
-  { path: "", redirectTo: "/home", pathMatch: "full" },
-  { path: "home", component: HomeComponent, canActivate: [SecurityGuard] },
+
   {
     path: "vehiculo",
     loadChildren: () =>
@@ -26,6 +25,8 @@ const routes: Routes = [
     loadChildren: () =>
       import("@devolucion/devolucion.module").then((mod) => mod.DevolucionModule),
   },
+  { path: "", redirectTo: "/home", pathMatch: "full" },
+  { path: "home", component: HomeComponent, canActivate: [SecurityGuard] }
 
 ];
 

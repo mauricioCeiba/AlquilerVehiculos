@@ -11,6 +11,12 @@ const routes: Routes = [
     path: '',
     component: VehiculoComponent,
     children: [
+
+      {
+        path: '',
+        redirectTo: 'listar',
+        pathMatch: 'full'
+      },
       {
         path: 'crear',
         component: CrearVehiculoComponent

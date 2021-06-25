@@ -29,7 +29,7 @@ export class AlquilerService {
     );
   }
 
-  public irADevolucion(id:number){
+  public irADevolucion(id: number){
     return this.http.doGet<Alquiler>(
       `${environment.baseUrl}/alquiler/${id}`,
       this.http.optsName("ir a devolucion llevando alquiler")

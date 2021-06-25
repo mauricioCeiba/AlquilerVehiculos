@@ -1,17 +1,17 @@
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProductoComponent } from './producto.component';
+import { DevolucionComponent } from './devolucion.component';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 
-describe('ProductoComponent', () => {
-  let component: ProductoComponent;
-  let fixture: ComponentFixture<ProductoComponent>;
+describe('DevolucionComponent', () => {
+  let component: DevolucionComponent;
+  let fixture: ComponentFixture<DevolucionComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProductoComponent ],
+      declarations: [ DevolucionComponent ],
       imports: [
         CommonModule,
         HttpClientModule,
@@ -22,7 +22,7 @@ describe('ProductoComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProductoComponent);
+    fixture = TestBed.createComponent(DevolucionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,11 +1,148 @@
 <?xml version="1.0"?>
-<testsuite name="Chrome 91.0.4472.114 (Windows 10)" package="" timestamp="2021-06-21T20:39:08" id="0" hostname="MAURICIO-COLLAZOS" tests="0" errors="0" failures="0" time="0">
+<testsuite name="Chrome 91.0.4472.114 (Windows 10)" package="" timestamp="2021-06-24T22:32:17" id="0" hostname="MAURICIO-COLLAZOS" tests="46" errors="0" failures="1" time="0.326">
   <properties>
     <property name="browser.fullName" value="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36"/>
   </properties>
+  <testcase name="ListarAlquilerComponent should create" time="0.194" classname="ListarAlquilerComponent">
+    <failure type="">NullInjectorError: R3InjectorError(DynamicTestModule)[UsuarioService -&gt; UsuarioService]: 
+  NullInjectorError: No provider for UsuarioService!
+error properties: Object({ ngTempTokenPath: null, ngTokenPath: [ 'UsuarioService', 'UsuarioService' ] })
+NullInjectorError: R3InjectorError(DynamicTestModule)[UsuarioService -&gt; UsuarioService]: 
+  NullInjectorError: No provider for UsuarioService!
+    at NullInjector.get (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11116:1)
+    at R3Injector.get (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11283:1)
+    at R3Injector.get (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:11283:1)
+    at NgModuleRef$1.get (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:25337:1)
+    at Object.get (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:25051:1)
+    at lookupTokenUsingModuleInjector (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:3389:1)
+    at getOrCreateInjectable (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:3501:1)
+    at ɵɵdirectiveInject (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:14707:1)
+    at NodeInjectorFactory.ListarAlquilerComponent_Factory [as factory] (ng:///ListarAlquilerComponent/ɵfac.js:5:7)
+    at getNodeInjectable (node_modules/@angular/core/__ivy_ngcc__/fesm2015/core.js:3596:1)
+</failure>
+    <failure type="">Error: Expected undefined to be truthy.
+    at &lt;Jasmine&gt;
+    at UserContext.&lt;anonymous&gt; (src/app/feature/alquiler/components/listar-alquiler/listar-alquiler.component.spec.ts:45:23)
+    at ZoneDelegate.invoke (node_modules/zone.js/dist/zone-evergreen.js:372:1)
+    at ProxyZoneSpec.push.QpwO.ProxyZoneSpec.onInvoke (node_modules/zone.js/dist/zone-testing.js:301:1)
+</failure>
+    <failure type="">TypeError: Cannot read property 'listaAlquileres' of undefined
+    at UserContext.&lt;anonymous&gt; (src/app/feature/alquiler/components/listar-alquiler/listar-alquiler.component.spec.ts:46:15)
+    at ZoneDelegate.invoke (node_modules/zone.js/dist/zone-evergreen.js:372:1)
+    at ProxyZoneSpec.push.QpwO.ProxyZoneSpec.onInvoke (node_modules/zone.js/dist/zone-testing.js:301:1)
+    at ZoneDelegate.invoke (node_modules/zone.js/dist/zone-evergreen.js:371:1)
+    at Zone.run (node_modules/zone.js/dist/zone-evergreen.js:134:1)
+    at runInTestZone (node_modules/zone.js/dist/zone-testing.js:581:1)
+    at UserContext.&lt;anonymous&gt; (node_modules/zone.js/dist/zone-testing.js:596:1)
+    at &lt;Jasmine&gt;
+</failure>
+  </testcase>
+  <testcase name="AlquilerService deberia crear un alquiler" time="0.01" classname="AlquilerService"/>
+  <testcase name="AlquilerService deberia eliminar un alquiler" time="0.005" classname="AlquilerService"/>
+  <testcase name="AlquilerService deberia crear" time="0.004" classname="AlquilerService"/>
+  <testcase name="AlquilerService deberia listar alquilers" time="0.005" classname="AlquilerService"/>
+  <testcase name="DevolucionService deberia listar devoluciones" time="0.006" classname="DevolucionService"/>
+  <testcase name="DevolucionService deberia crear un devolucion" time="0.004" classname="DevolucionService"/>
+  <testcase name="DevolucionService should be created" time="0.006" classname="DevolucionService"/>
+  <testcase name="DevolucionService deberia eliminar un devolucion" time="0.003" classname="DevolucionService"/>
+  <testcase name="ListarUsuarioComponent should create" time="0.019" classname="ListarUsuarioComponent"/>
+  <testcase name="UsuarioService should be created" time="0.003" classname="UsuarioService"/>
+  <testcase name="UsuarioService deberia listar usuarios" time="0.002" classname="UsuarioService"/>
+  <testcase name="UsuarioService deberia crear un usuario" time="0.008" classname="UsuarioService"/>
+  <testcase name="UsuarioService deberia eliminar un usuario" time="0.008" classname="UsuarioService"/>
+  <testcase name="ListarVehiculoComponent should create" time="0.037" classname="ListarVehiculoComponent"/>
+  <testcase name="VehiculoService deberia listar vehiculos" time="0.004" classname="VehiculoService"/>
+  <testcase name="VehiculoService should be created" time="0.002" classname="VehiculoService"/>
+  <testcase name="VehiculoService deberia crear un vehiculo" time="0.003" classname="VehiculoService"/>
+  <testcase name="VehiculoService deberia eliminar un vehiculo" time="0.003" classname="VehiculoService"/>
+  <testcase name="BorrarDevolucionComponent should create" time="0" classname="BorrarDevolucionComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="BorrarUsuarioComponent should create" time="0" classname="BorrarUsuarioComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="VehiculoComponent should create" time="0" classname="VehiculoComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="BorrarAlquilerComponent should create" time="0" classname="BorrarAlquilerComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="CrearDevolucionComponent formulario es invalido cuando esta vacio" time="0" classname="CrearDevolucionComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="CrearDevolucionComponent Registrando devolucion" time="0" classname="CrearDevolucionComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="CrearDevolucionComponent should create" time="0" classname="CrearDevolucionComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="AlquilerComponent should create" time="0" classname="AlquilerComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="CrearUsuarioComponent formulario es invalido cuando esta vacio" time="0" classname="CrearUsuarioComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="CrearUsuarioComponent should create" time="0" classname="CrearUsuarioComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="CrearUsuarioComponent Registrando usuario" time="0" classname="CrearUsuarioComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="CrearAlquilerComponent should create" time="0" classname="CrearAlquilerComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="CrearAlquilerComponent formulario es invalido cuando esta vacio" time="0" classname="CrearAlquilerComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="CrearAlquilerComponent #crear registrando alquiler" time="0" classname="CrearAlquilerComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="HomeComponent should create" time="0" classname="HomeComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="UsuarioComponent should create" time="0" classname="UsuarioComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="AppComponent should create the app" time="0" classname="AppComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="AppComponent should have as title 'AlquilerVehiculos'" time="0" classname="AppComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="ErrorCamposPlantillaComponent should create" time="0" classname="ErrorCamposPlantillaComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="NavbarComponent should create" time="0" classname="NavbarComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="DevolucionComponent should create" time="0" classname="DevolucionComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="CrearVehiculoComponent should create" time="0" classname="CrearVehiculoComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="CrearVehiculoComponent formulario es invalido cuando esta vacio" time="0" classname="CrearVehiculoComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="CrearVehiculoComponent Registrando vehiculo" time="0" classname="CrearVehiculoComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="SecurityGuard should ..." time="0" classname="SecurityGuard">
+    <skipped/>
+  </testcase>
+  <testcase name="ListarDevolucionComponent should create" time="0" classname="ListarDevolucionComponent">
+    <skipped/>
+  </testcase>
+  <testcase name="ToolbarComponent should create" time="0" classname="ToolbarComponent">
+    <skipped/>
+  </testcase>
   <system-out>
-    <![CDATA[Chrome 91.0.4472.114 (Windows 10) ERROR
-  Disconnected Client disconnected from CONNECTED state (transport close)
+    <![CDATA[Chrome 91.0.4472.114 (Windows 10) WARN: 'DEPRECATED: DI is instantiating a token "MockLocationStrategy" that inherits its @Injectable decorator but does not provide one itself.
+This will become an error in a future version of Angular. Please add @Injectable() to the "MockLocationStrategy" class.'
+,Chrome 91.0.4472.114 (Windows 10) WARN: 'DEPRECATED: DI is instantiating a token "MockLocationStrategy" that inherits its @Injectable decorator but does not provide one itself.
+This will become an error in a future version of Angular. Please add @Injectable() to the "MockLocationStrategy" class.'
+,Chrome 91.0.4472.114 (Windows 10) WARN: 'DEPRECATED: DI is instantiating a token "MockLocationStrategy" that inherits its @Injectable decorator but does not provide one itself.
+This will become an error in a future version of Angular. Please add @Injectable() to the "MockLocationStrategy" class.'
 
 ]]>
   </system-out>

@@ -1,46 +1,49 @@
 import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 
-import { ListarProductoComponent } from './listar-producto.component';
+import { ListarAlquilerComponent } from './listar-alquiler.component';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
-import { ProductoService } from '../../shared/service/producto.service';
-import { Producto } from '../../shared/model/producto';
+import { AlquilerService } from '../../shared/service/alquiler.service';
+import { Alquiler } from '../../shared/model/alquiler';
 import { HttpService } from 'src/app/core/services/http.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
-describe('ListarProductoComponent', () => {
-  let component: ListarProductoComponent;
-  let fixture: ComponentFixture<ListarProductoComponent>;
-  let productoService: ProductoService;
-  const listaProductos: Producto[] = [new Producto('1', 'Producto 1'), new Producto('2', 'Producto 2')];
+fdescribe('ListarAlquilerComponent', () => {
+  let component: ListarAlquilerComponent;
+  let fixture: ComponentFixture<ListarAlquilerComponent>;
+  let alquilerService: AlquilerService;
+  const listaAlquilers: Alquiler[] = [
+    new Alquiler("1", "1", "1", 2, 200000, new Date("2021-06-20")),
+    new Alquiler("2", "2", "2", 2, 400000, new Date("2021-06-20")),
+  ];
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ListarProductoComponent],
+      declarations: [ListarAlquilerComponent],
       imports: [
         CommonModule,
-        HttpClientModule,
+        HttpClientTestingModule,
         RouterTestingModule
       ],
-      providers: [ProductoService, HttpService]
+      providers: [AlquilerService, HttpService]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ListarProductoComponent);
+    fixture = TestBed.createComponent(ListarAlquilerComponent);
     component = fixture.componentInstance;
-    productoService = TestBed.inject(ProductoService);
-    spyOn(productoService, 'consultar').and.returnValue(
-      of(listaProductos)
+    alquilerService = TestBed.inject(AlquilerService);
+    spyOn(alquilerService, 'consultar').and.returnValue(
+      of(listaAlquilers)
     );
     fixture.detectChanges();
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
-    component.listaProductos.subscribe(resultado => {
+    component.listaAlquileres.subscribe(resultado => {
       expect(2).toBe(resultado.length);
   });
 });

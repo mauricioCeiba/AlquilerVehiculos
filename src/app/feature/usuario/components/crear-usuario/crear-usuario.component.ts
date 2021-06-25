@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class CrearUsuarioComponent implements OnInit {
   usuarioForm: FormGroup;
-  constructor(protected usuarioServices: UsuarioService,protected router: Router) { }
+  constructor(protected usuarioServices: UsuarioService, protected router: Router) { }
 
   ngOnInit() {
     this.construirFormularioUsuario();

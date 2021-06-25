@@ -12,8 +12,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of listaUsuarios| async">
-        <th>{{item.id}}</th>
+      <tr *ngFor="let item of listaUsuarios| async" class="usuarios">
+        <td>{{item.id}}</td>
         <td>{{item.nombre}}</td>
         <td>{{item.cedula}}</td>
         <td> <a (click)="eliminar(item.id)" class="btn btn-danger btn-sm">Eliminar</a></td>

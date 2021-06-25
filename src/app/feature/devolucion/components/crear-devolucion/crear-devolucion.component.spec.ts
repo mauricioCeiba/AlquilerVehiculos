@@ -49,8 +49,8 @@ describe('CrearDevolucionComponent', () => {
 
   it('Registrando devolucion', () => {
     expect(component.devolucionForm.valid).toBeFalsy();
-    component.devolucionForm.controls.id.setValue('001');
-    component.devolucionForm.controls.descripcion.setValue('Devolucion test');
+    component.devolucionForm.controls.fechaEntrega.setValue('2021-06-21');
+    component.devolucionForm.controls.porcentajeDeDano.setValue(1);
     expect(component.devolucionForm.valid).toBeTruthy();
 
     component.cerar();

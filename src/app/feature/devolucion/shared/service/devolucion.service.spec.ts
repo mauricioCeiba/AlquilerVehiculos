@@ -1,62 +1,63 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
-import { ProductoService } from './producto.service';
+import { DevolucionService } from './devolucion.service';
 import { environment } from 'src/environments/environment';
 import { HttpService } from 'src/app/core/services/http.service';
-import { Producto } from '../model/producto';
+import { Devolucion } from '../model/devolucion';
 import { HttpResponse } from '@angular/common/http';
 
-describe('ProductoService', () => {
+fdescribe('DevolucionService', () => {
   let httpMock: HttpTestingController;
-  let service: ProductoService;
-  const apiEndpointProductoConsulta = `${environment.endpoint}/tiposFamilia`;
-  const apiEndpointProductos = `${environment.endpoint}/productos`;
+  let service: DevolucionService;
+  const apiEndpointDevolucionConsulta = `${environment.baseUrl}/devoluciones`;
+  const apiEndpointDevolucions = `${environment.baseUrl}/devoluciones`;
 
   beforeEach(() => {
     const injector = TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      providers: [ProductoService, HttpService]
+      providers: [DevolucionService, HttpService],
     });
     httpMock = injector.inject(HttpTestingController);
-    service = TestBed.inject(ProductoService);
+    service = TestBed.inject(DevolucionService);
   });
 
-  it('should be created', () => {
-    const productService: ProductoService = TestBed.inject(ProductoService);
+  it("should be created", () => {
+    const productService: DevolucionService = TestBed.inject(DevolucionService);
     expect(productService).toBeTruthy();
   });
 
-  it('deberia listar productos', () => {
-    const dummyProductos = [
-      new Producto('1', 'Producto 1'), new Producto('2', 'Producto 2')
+  it("deberia listar devoluciones", () => {
+    const dummyDevolucions = [
+      new Devolucion(1, 1, new Date("2021-06-22"), 0, 0, 0, 200000),
+      new Devolucion(2, 2, new Date("2021-06-22"), 0, 0, 0, 200000),
     ];
-    service.consultar().subscribe(productos => {
-      expect(productos.length).toBe(2);
-      expect(productos).toEqual(dummyProductos);
+    service.consultar().subscribe((devolucions) => {
+      expect(devolucions.length).toBe(2);
+      expect(devolucions).toEqual(dummyDevolucions);
     });
-    const req = httpMock.expectOne(apiEndpointProductoConsulta);
-    expect(req.request.method).toBe('GET');
-    req.flush(dummyProductos);
+    const req = httpMock.expectOne(apiEndpointDevolucionConsulta);
+    expect(req.request.method).toBe("GET");
+    req.flush(dummyDevolucions);
   });
 
-  it('deberia crear un producto', () => {
-    const dummyProducto = new Producto('1', 'Producto 1');
-    service.guardar(dummyProducto).subscribe((respuesta) => {
+  it("deberia crear un devolucion", () => {
+    const dummyDevolucion = new Devolucion(3, 1, new Date("2021-06-22"), 0, 0, 0, 200000);
+    service.guardar(dummyDevolucion).subscribe((respuesta) => {
       expect(respuesta).toEqual(true);
     });
-    const req = httpMock.expectOne(apiEndpointProductos);
-    expect(req.request.method).toBe('POST');
-    req.event(new HttpResponse<boolean>({body: true}));
+    const req = httpMock.expectOne(apiEndpointDevolucions);
+    expect(req.request.method).toBe("POST");
+    req.event(new HttpResponse<boolean>({ body: true }));
   });
 
-  it('deberia eliminar un producto', () => {
-    const dummyProducto = new Producto('1', 'Producto 1');
-    service.eliminar(dummyProducto).subscribe((respuesta) => {
+  it("deberia eliminar un devolucion", () => {
+    new Devolucion(1, 1, new Date("2021-06-22"), 0, 0, 0, 200000);
+    service.eliminar(1).subscribe((respuesta) => {
       expect(respuesta).toEqual(true);
     });
-    const req = httpMock.expectOne(`${apiEndpointProductos}/1`);
-    expect(req.request.method).toBe('DELETE');
-    req.event(new HttpResponse<boolean>({body: true}));
+    const req = httpMock.expectOne(`${apiEndpointDevolucions}/1`);
+    expect(req.request.method).toBe("DELETE");
+    req.event(new HttpResponse<boolean>({ body: true }));
   });
 });

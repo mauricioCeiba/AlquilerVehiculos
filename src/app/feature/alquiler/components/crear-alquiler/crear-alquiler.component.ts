@@ -16,13 +16,13 @@ import { Router } from '@angular/router';
 })
 export class CrearAlquilerComponent implements OnInit {
   alquilerForm: FormGroup;
-  public usuarios:Observable<Usuario[]>;
-  public vehiculos:Observable<Vehiculo[]>;
+  public usuarios: Observable<Usuario[]>;
+  public vehiculos: Observable<Vehiculo[]>;
 
 
 
-  constructor(protected alquilerServices: AlquilerService,protected router: Router,
-     protected usuarioService:UsuarioService, protected vehiculoService:VehiculoService) { }
+  constructor(protected alquilerServices: AlquilerService, protected router: Router,
+              protected usuarioService: UsuarioService, protected vehiculoService: VehiculoService) { }
 
   ngOnInit() {
     this.construirFormularioAlquiler();
@@ -38,7 +38,7 @@ export class CrearAlquilerComponent implements OnInit {
 
   private construirFormularioAlquiler() {
     this.alquilerForm = new FormGroup({
-      id: new FormControl('', [Validators.required]),
+
       vehiculosId: new FormControl('', [Validators.required]),
       usuariosId: new FormControl('', [Validators.required]),
       cantidadDiasAlquiler: new FormControl('', [Validators.required]),

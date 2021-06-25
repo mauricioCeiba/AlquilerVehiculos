@@ -7,6 +7,9 @@ import { CrearAlquilerComponent } from './components/crear-alquiler/crear-alquil
 import { AlquilerComponent } from './components/alquiler/alquiler.component';
 import { SharedModule } from '@shared/shared.module';
 import { AlquilerService } from './shared/service/alquiler.service';
+import { CoreModule } from '@core/core.module';
+import { UsuarioService } from '@usuario/shared/service/usuario.service';
+import { VehiculoService } from '@vehiculo/shared/service/vehiculo.service';
 
 
 
@@ -19,8 +22,9 @@ import { AlquilerService } from './shared/service/alquiler.service';
   ],
   imports: [
     AlquilerRoutingModule,
-    SharedModule
+    SharedModule,
+    CoreModule
   ],
-  providers: [AlquilerService]
+  providers: [AlquilerService, UsuarioService, VehiculoService]
 })
 export class AlquilerModule { }
